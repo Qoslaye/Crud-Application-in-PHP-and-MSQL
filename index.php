@@ -1,5 +1,6 @@
 
         <?php include("Header.php"); ?>
+        <?php include("dbcon.php"); ?>
         <h2>ALL STUDENTS </h2>
         <table class= "table table-hover table-bordered table-striped">
         <thead>
@@ -11,27 +12,29 @@
             </tr>
         </thead>
         <tbody>
-            
-        <tr>
-                    <td>1</td>
-                    <td>Hassan </td>
-                    <td>Ali </td>
-                    <td>20</td>
-                </tr>
-                
-                <tr>
-                    <td>1</td>
-                    <td>Hassan </td>
-                    <td>Ali </td>
-                    <td>20</td>
-                </tr>
+            <?php
+                $query = "select * from `students`" ;
+                $result = mysqli_query($connection , $query);
 
-                <tr>
-                    <td>1</td>
-                    <td>Hassan </td>
-                    <td>Ali </td>
-                    <td>20</td>
+                if(!$result){
+                    die("query failed:".mysqli_error());
+                }
+                else{
+
+                    while($row = mysqli_fetch_array($result)){
+                       ?>
+               <tr>
+                    <td><?php echo $row ['id'] ; ?> </td>
+                    <td><?php echo $row ['first_name'] ; ?>  </td>
+                    <td><?php echo $row ['last_name'] ; ?>  </td>
+                    <td><?php echo $row ['age'] ; ?> </td>
                 </tr>
+                        <?php
+                    }  
+                }
+                
+            ?>
+             
         </tbody>
     </table>
     <?php include("footer.php"); ?>

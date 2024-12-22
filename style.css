@@ -1,10 +1,6 @@
-#main_title{
-    text-align: center;
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    letter-spacing: 2px;
-    font-weight: 500;
-
-    
+.box1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+

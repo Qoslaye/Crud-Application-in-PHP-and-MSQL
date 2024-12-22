@@ -1,6 +1,8 @@
 
         <?php include("Header.php"); ?>
         <?php include("dbcon.php"); ?>
+
+       
         <h2>ALL STUDENTS </h2>
         <table class= "table table-hover table-bordered table-striped">
         <thead>
